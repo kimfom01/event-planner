@@ -83,10 +83,10 @@ const Header = () => {
             Profile
           </NavLink>
           <button
-            className="px-6 py-2 border border-slate-700 rounded-lg font-bold hover:bg-slate-600"
+            className="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg font-bold"
             type="button"
           >
-            Logout
+            Login
           </button>
         </nav>
       </div>

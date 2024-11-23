@@ -3,5 +3,5 @@ export interface Participant {
   fullName: string;
   emailAddress: string;
   eventId: string;
-  event: Event;
+  event?: Event;
 }
