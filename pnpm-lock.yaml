@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@prisma/client':
+        specifier: ^5.22.0
+        version: 5.22.0(prisma@5.22.0)
       '@remix-run/node':
         specifier: ^2.15.0
         version: 2.15.0(typescript@5.7.2)
@@ -26,16 +29,25 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
+      react-modal:
+        specifier: ^3.16.1
+        version: 3.16.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@remix-run/dev':
         specifier: ^2.15.0
         version: 2.15.0(@remix-run/react@2.15.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2))(@remix-run/serve@2.15.0(typescript@5.7.2))(@types/node@22.9.3)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.3))
+      '@tailwindcss/forms':
+        specifier: ^0.5.9
+        version: 0.5.9(tailwindcss@3.4.15)
       '@types/react':
         specifier: ^18.2.20
         version: 18.3.12
       '@types/react-dom':
         specifier: ^18.2.7
         version: 18.3.1
+      '@types/react-modal':
+        specifier: ^3.16.3
+        version: 3.16.3
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.7.4
         version: 6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.7.2))(eslint@8.57.1)(typescript@5.7.2)
@@ -66,6 +78,9 @@ importers:
       postcss:
         specifier: ^8.4.38
         version: 8.4.49
+      prisma:
+        specifier: ^5.22.0
+        version: 5.22.0
       tailwindcss:
         specifier: ^3.4.4
         version: 3.4.15
@@ -596,6 +611,30 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
+  '@prisma/client@5.22.0':
+    resolution: {integrity: sha512-M0SVXfyHnQREBKxCgyo7sffrKttwE6R8PMq330MIUF0pTwjUhLbW84pFDlf06B27XyCR++VtjugEnIHdr07SVA==}
+    engines: {node: '>=16.13'}
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+
+  '@prisma/debug@5.22.0':
+    resolution: {integrity: sha512-AUt44v3YJeggO2ZU5BkXI7M4hu9BF2zzH2iF2V5pyXT/lRTyWiElZ7It+bRH1EshoMRxHgpYg4VB6rCM+mG5jQ==}
+
+  '@prisma/engines-version@5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2':
+    resolution: {integrity: sha512-2PTmxFR2yHW/eB3uqWtcgRcgAbG1rwG9ZriSvQw+nnb7c4uCr3RAcGMb6/zfE88SKlC1Nj2ziUvc96Z379mHgQ==}
+
+  '@prisma/engines@5.22.0':
+    resolution: {integrity: sha512-UNjfslWhAt06kVL3CjkuYpHAWSO6L4kDCVPegV6itt7nD1kSJavd3vhgAEhjglLJJKEdJ7oIqDJ+yHk6qO8gPA==}
+
+  '@prisma/fetch-engine@5.22.0':
+    resolution: {integrity: sha512-bkrD/Mc2fSvkQBV5EpoFcZ87AvOgDxbG99488a5cexp5Ccny+UM6MAe/UFkUC0wLYD9+9befNOqGiIJhhq+HbA==}
+
+  '@prisma/get-platform@5.22.0':
+    resolution: {integrity: sha512-pHhpQdr1UPFpt+zFfnPazhulaZYCUqeIcPpJViYoq9R+D/yw4fjE+CtnsnKzPYm0ddUbeXUzjGVGIRVgPDCk4Q==}
+
   '@remix-run/dev@2.15.0':
     resolution: {integrity: sha512-iXV6u9PBwFc7KriDpVcjqLGJzZZd6ZOrxewen7hoH0OBzGwjkhtm46BTQEJrZ/e/dzlU1IU/0ylH29tN9BZoyg==}
     engines: {node: '>=18.0.0'}
@@ -773,6 +812,11 @@ packages:
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
 
+  '@tailwindcss/forms@0.5.9':
+    resolution: {integrity: sha512-tM4XVr2+UVTxXJzey9Twx48c1gcxFStqn1pQz0tRsX8o3DvxhN5oY5pvyAbUx7VTaZxpej4Zzvc6h+1RJBzpIg==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20'
+
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
 
@@ -814,6 +858,9 @@ packages:
 
   '@types/react-dom@18.3.1':
     resolution: {integrity: sha512-qW1Mfv8taImTthu4KoXgDfLuk4bydU6Q/TkADnDWWHwi4NX4BR+LWfTp2sVmTqRrsHvyDDTelgelxJ+SsejKKQ==}
+
+  '@types/react-modal@3.16.3':
+    resolution: {integrity: sha512-xXuGavyEGaFQDgBv4UVm8/ZsG+qxeQ7f77yNrW3n+1J6XAstUy5rYHeIHPh1KzsGc6IkCIdu6lQ2xWzu1jBTLg==}
 
   '@types/react@18.3.12':
     resolution: {integrity: sha512-D2wOSq/d6Agt28q7rSI3jhU7G6aiuzljDGZ2hTZHIkrTLUI+AF3WMeKkEZ9nN2fkBAlcktT6vcZjDFiIhMYEQw==}
@@ -1571,6 +1618,9 @@ packages:
     resolution: {integrity: sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg==}
     engines: {node: '>=10'}
 
+  exenv@1.2.2:
+    resolution: {integrity: sha512-Z+ktTxTwv9ILfgKCk32OX3n/doe+OcLTRtqK9pcL+JsP3J1/VW8Uvl4ZjLlKqeW4rzK4oesDOGMEMRIZqtP4Iw==}
+
   exit-hook@2.2.1:
     resolution: {integrity: sha512-eNTPlAD67BmP31LDINZ3U7HSF8l57TxOY2PmBJ1shpCvpnxBF93mWCE8YHBnXs8qiUZJc9WDcWIeC3a2HIAMfw==}
     engines: {node: '>=6'}
@@ -2318,6 +2368,10 @@ packages:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
     engines: {node: '>=6'}
 
+  mini-svg-data-uri@1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
+
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
 
@@ -2700,6 +2754,11 @@ packages:
     resolution: {integrity: sha512-973driJZvxiGOQ5ONsFhOF/DtzPMOMtgC11kCpUrPGMTgqp2q/1gwzCquocrN33is0VZ5GFHXZYMM9l6h67v2Q==}
     engines: {node: '>=10'}
 
+  prisma@5.22.0:
+    resolution: {integrity: sha512-vtpjW3XuYCSnMsNVBjLMNkTj6OZbudcPPTPYHqX0CJfpcdWciI1dM8uHETwmDxxiqEwCIE6WvXucWUetJgfu/A==}
+    engines: {node: '>=16.13'}
+    hasBin: true
+
   proc-log@3.0.0:
     resolution: {integrity: sha512-++Vn7NS4Xf9NacaU9Xq3URUuqZETPsf8L4j5/ckhaRYsfPeRyzGw+iDjFhV/Jr3uNmTvvddEJFWh5R1gRgUH8A==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
@@ -2764,6 +2823,16 @@ packages:
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-lifecycles-compat@3.0.4:
+    resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
+
+  react-modal@3.16.1:
+    resolution: {integrity: sha512-VStHgI3BVcGo7OXczvnJN7yT2TWHJPDXZWyI/a0ssFNhGZWsPmB8cF0z33ewDXq4VfYMO1vXgiv/g8Nj9NDyWg==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
+      react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
 
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
@@ -3335,6 +3404,9 @@ packages:
       terser:
         optional: true
 
+  warning@4.0.3:
+    resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
+
   wcwidth@1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
 
@@ -3901,6 +3973,31 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
+  '@prisma/client@5.22.0(prisma@5.22.0)':
+    optionalDependencies:
+      prisma: 5.22.0
+
+  '@prisma/debug@5.22.0': {}
+
+  '@prisma/engines-version@5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2': {}
+
+  '@prisma/engines@5.22.0':
+    dependencies:
+      '@prisma/debug': 5.22.0
+      '@prisma/engines-version': 5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2
+      '@prisma/fetch-engine': 5.22.0
+      '@prisma/get-platform': 5.22.0
+
+  '@prisma/fetch-engine@5.22.0':
+    dependencies:
+      '@prisma/debug': 5.22.0
+      '@prisma/engines-version': 5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2
+      '@prisma/get-platform': 5.22.0
+
+  '@prisma/get-platform@5.22.0':
+    dependencies:
+      '@prisma/debug': 5.22.0
+
   '@remix-run/dev@2.15.0(@remix-run/react@2.15.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2))(@remix-run/serve@2.15.0(typescript@5.7.2))(@types/node@22.9.3)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.3))':
     dependencies:
       '@babel/core': 7.26.0
@@ -4122,6 +4219,11 @@ snapshots:
 
   '@rtsao/scc@1.1.0': {}
 
+  '@tailwindcss/forms@0.5.9(tailwindcss@3.4.15)':
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: 3.4.15
+
   '@types/acorn@4.0.6':
     dependencies:
       '@types/estree': 1.0.6
@@ -4161,6 +4263,10 @@ snapshots:
   '@types/prop-types@15.7.13': {}
 
   '@types/react-dom@18.3.1':
+    dependencies:
+      '@types/react': 18.3.12
+
+  '@types/react-modal@3.16.3':
     dependencies:
       '@types/react': 18.3.12
 
@@ -5172,6 +5278,8 @@ snapshots:
       signal-exit: 3.0.7
       strip-final-newline: 2.0.0
 
+  exenv@1.2.2: {}
+
   exit-hook@2.2.1: {}
 
   express@4.21.1:
@@ -6116,6 +6224,8 @@ snapshots:
 
   mimic-fn@2.1.0: {}
 
+  mini-svg-data-uri@1.4.4: {}
+
   minimatch@3.1.2:
     dependencies:
       brace-expansion: 1.1.11
@@ -6489,6 +6599,12 @@ snapshots:
     dependencies:
       parse-ms: 2.1.0
 
+  prisma@5.22.0:
+    dependencies:
+      '@prisma/engines': 5.22.0
+    optionalDependencies:
+      fsevents: 2.3.3
+
   proc-log@3.0.0: {}
 
   process-nextick-args@2.0.1: {}
@@ -6553,6 +6669,17 @@ snapshots:
       scheduler: 0.23.2
 
   react-is@16.13.1: {}
+
+  react-lifecycles-compat@3.0.4: {}
+
+  react-modal@3.16.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      exenv: 1.2.2
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-lifecycles-compat: 3.0.4
+      warning: 4.0.3
 
   react-refresh@0.14.2: {}
 
@@ -7263,6 +7390,10 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.9.3
       fsevents: 2.3.3
+
+  warning@4.0.3:
+    dependencies:
+      loose-envify: 1.4.0
 
   wcwidth@1.0.1:
     dependencies:
