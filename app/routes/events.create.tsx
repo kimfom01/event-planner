@@ -16,6 +16,18 @@ const CreateEvents = () => {
       >
         <div className="text-xl  font-bold self-center">New Event</div>
         <div className="flex flex-col items-start gap-4 w-full">
+          <label htmlFor="title" className="font-bold">
+            Title:
+          </label>
+          <input
+            type="text"
+            id="title"
+            required
+            name="title"
+            className="bg-transparent border border-slate-700 w-full rounded-lg"
+          />
+        </div>
+        <div className="flex flex-col items-start gap-4 w-full">
           <label htmlFor="description" className="font-bold">
             Description:
           </label>
@@ -69,6 +81,7 @@ export const action: ActionFunction = async ({
 
   await db.event.create({
     data: {
+      title: formData.get("title") as string,
       description: formData.get("description") as string,
       location: formData.get("location") as string,
       eventDate: new Date(formData.get("eventDate") as string),

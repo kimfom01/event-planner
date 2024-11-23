@@ -41,23 +41,27 @@ const Events = () => {
                 key={event.id}
                 className="border border-slate-800 w-fit p-4 flex flex-col gap-4 rounded-lg"
               >
-                <div className="flex flex-col justify-between">
-                  <div className="flex gap-4">
-                    <div className="font-bold">Location:</div>
-                    <div>{event.location}</div>
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex gap-4">
+                      <div className="font-bold">Title:</div>
+                      <div>{event.title}</div>
+                    </div>
+                    <div className="line-clamp-2 text-sm">{event.description}</div>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="font-bold">Date:</div>
-                    <div>{new Date(event.eventDate).toDateString()}</div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="font-bold">Time:</div>
-                    <div>{new Date(event.eventDate).toTimeString()}</div>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <div className="line-clamp-2 font-bold">
-                    {event.description}
+                  <div className="flex flex-col">
+                    <div className="flex gap-4">
+                      <div className="font-bold">Location:</div>
+                      <div>{event.location}</div>
+                    </div>
+                    <div className="flex gap-4">
+                      <div className="font-bold">Date:</div>
+                      <div>{new Date(event.eventDate).toDateString()}</div>
+                    </div>
+                    <div className="flex gap-4">
+                      <div className="font-bold">Time:</div>
+                      <div>{new Date(event.eventDate).toTimeString()}</div>
+                    </div>
                   </div>
                   <Link
                     to={`${event.id}`}
