@@ -1,5 +1,15 @@
-import { LoaderFunction } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import {
+  ActionFunction,
+  ActionFunctionArgs,
+  LoaderFunction,
+} from "@remix-run/node";
+import {
+  Form,
+  Link,
+  redirect,
+  useLoaderData,
+  useNavigation,
+} from "@remix-run/react";
 import { useState } from "react";
 import ReactModal from "react-modal";
 
@@ -18,7 +28,7 @@ const modalStyle = {
     borderRadius: "12px",
     position: "absolute",
     height: "fit-content",
-    width: "300px",
+    width: "fit-content",
     top: "120px",
     left: "calc(50% - 150px)",
   } as React.CSSProperties,
@@ -40,8 +50,11 @@ export const loader: LoaderFunction = async () => {
 };
 
 const Events = () => {
+  const navigation = useNavigation();
   const events = useLoaderData<Event[]>();
   const [isOpen, setIsOpen] = useState(false);
+
+  const isSubmitting = navigation.state === "submitting";
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
@@ -70,12 +83,18 @@ const Events = () => {
                   <div>{event.location}</div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="font-bold">Date & Time:</div>
-                  <div>{new Date(event.eventDate).toLocaleString()}</div>
+                  <div className="font-bold">Date:</div>
+                  <div>{new Date(event.eventDate).toDateString()}</div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="font-bold">Time:</div>
+                  <div>{new Date(event.eventDate).toTimeString()}</div>
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="line-clamp-3">{event.description}</div>
+                <div className="line-clamp-3 font-bold">
+                  {event.description}
+                </div>
                 <Link to={`${event.id}`} className="self-end">
                   View Details
                 </Link>
@@ -89,20 +108,78 @@ const Events = () => {
         style={modalStyle}
         onRequestClose={closeModal}
       >
-        <div className="text-slate-950 flex gap-4 w-full">
-          <label htmlFor="title" className="font-bold">
-            Title
-          </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            className="bg-transparent border-slate-950 w-full"
-          />
-        </div>
+        <Form
+          method="POST"
+          className="w-full h-full flex flex-col gap-4"
+          reloadDocument
+        >
+          <div className="text-xl text-slate-950 font-bold self-center">
+            New Event
+          </div>
+          <div className="text-slate-950 flex items-center gap-4 w-full">
+            <label htmlFor="description" className="font-bold">
+              Description:
+            </label>
+            <textarea
+              id="description"
+              required
+              rows={3}
+              name="description"
+              className="bg-transparent border border-slate-700 w-full rounded-lg"
+            ></textarea>
+          </div>
+          <div className="text-slate-950 flex items-center gap-4 w-full">
+            <label htmlFor="location" className="font-bold">
+              Location:
+            </label>
+            <input
+              type="text"
+              required
+              id="location"
+              name="location"
+              className="bg-transparent border border-slate-700 w-full rounded-lg"
+            />
+          </div>
+          <div className="text-slate-950 flex items-center gap-4 w-full">
+            <label htmlFor="eventDate" className="font-bold">
+              Event Date:
+            </label>
+            <input
+              type="datetime-local"
+              required
+              id="eventDate"
+              name="eventDate"
+              className="bg-transparent border border-slate-700 w-full rounded-lg"
+            />
+          </div>
+          <button
+            disabled={isSubmitting}
+            className="px-6 py-2 border border-slate-700 rounded-lg font-bold hover:bg-slate-600 text-xl text-slate-950 self-center"
+          >
+            {isSubmitting ? "Creating..." : "Create"}
+          </button>
+        </Form>
       </ReactModal>
     </div>
   );
 };
+
+export const action: ActionFunction = async ({
+  request,
+}: ActionFunctionArgs) => {
+  const formData = await request.formData();
+
+  await db.event.create({
+    data: {
+      description: formData.get("description") as string,
+      location: formData.get("location") as string,
+      eventDate: new Date(formData.get("eventDate") as string),
+    },
+  });
+
+  return redirect("/events");
+};
+
+ReactModal.setAppElement("body");
 
 export default Events;

@@ -5,6 +5,6 @@ export interface Event {
   description: string;
   eventDate: Date;
   location: string;
-  createdAt: Date;
+  createdAt?: Date;
   participants?: Participant[];
 }
