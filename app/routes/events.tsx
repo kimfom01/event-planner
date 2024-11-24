@@ -41,13 +41,16 @@ const Events = () => {
                 key={event.id}
                 className="border border-slate-800 w-fit p-4 flex flex-col gap-4 rounded-lg"
               >
+                {/* TODO: Use grids to arrange better */}
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
                     <div className="flex gap-4">
                       <div className="font-bold">Title:</div>
                       <div>{event.title}</div>
                     </div>
-                    <div className="line-clamp-2 text-sm">{event.description}</div>
+                    <div className="line-clamp-2 text-sm">
+                      {event.description}
+                    </div>
                   </div>
                   <div className="flex flex-col">
                     <div className="flex gap-4">
