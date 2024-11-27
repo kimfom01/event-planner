@@ -1,10 +1,13 @@
 import {
+  isRouteErrorResponse,
+  Link,
   Links,
   Meta,
   NavLink,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError,
 } from "@remix-run/react";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { LayoutComponent } from "@remix-run/react/dist/routeModules";
@@ -143,5 +146,27 @@ const Header = () => {
         </nav>
       </section>
     </header>
+  );
+};
+
+export const ErrorBoundary = () => {
+  const error = useRouteError();
+  return (
+    <div className="w-full h-full flex flex-col justify-center items-center">
+      <h1 className="text-2xl font-bold">An error occured!</h1>
+      <p className="text-3xl text-center font-bold">
+        {isRouteErrorResponse(error) && error.data}
+      </p>
+      <p className="text-3xl text-center font-bold">
+        {error instanceof Error && error.message}
+      </p>
+      <div>
+        <span>Back to</span>&nbsp;
+        <Link className="underline" to={"/"}>
+          safety
+        </Link>
+        <span>!</span>
+      </div>
+    </div>
   );
 };
