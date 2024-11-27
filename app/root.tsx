@@ -7,6 +7,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { LayoutComponent } from "@remix-run/react/dist/routeModules";
+import { useRef } from "react";
+import { RiMenuLine } from "@remixicon/react";
 
 import "./tailwind.css";
 
@@ -34,7 +37,11 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export const Layout: LayoutComponent = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   return (
     <html lang="en">
       <head>
@@ -51,22 +58,33 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </body>
     </html>
   );
-}
+};
 
 export default function App() {
   return <Outlet />;
 }
 
 const Header = () => {
+  const navRef = useRef<HTMLElement>(null);
+
+  const toggleMobileNav = () => {
+    if (navRef) {
+      navRef.current?.classList.toggle("hidden");
+    }
+  };
+
   return (
     <header className="flex flex-col justify-between md:flex-row">
-      <h1 className="text-2xl font-bold">
-        <NavLink prefetch="intent" to={`/`}>
-          Event Planner
-        </NavLink>
-      </h1>
-      <div className="hidden md:block font-semibold dark:text-slate-400">
-        <nav className="flex flex-col md:items-center md:flex-row gap-4">
+      <section
+        id="desktop-nav"
+        className="font-semibold dark:text-slate-400 flex justify-between w-full"
+      >
+        <h1 className="text-2xl font-bold">
+          <NavLink prefetch="intent" to={`/`}>
+            Event Planner
+          </NavLink>
+        </h1>
+        <nav className="hidden md:flex flex-col md:items-center md:flex-row gap-4">
           <NavLink prefetch="intent" to={`/`} className="group">
             <span className="group-[.active]:underline">Home</span>
           </NavLink>
@@ -89,7 +107,41 @@ const Header = () => {
             Login
           </button>
         </nav>
-      </div>
+        <button className="md:hidden" onClick={toggleMobileNav}>
+          <RiMenuLine />
+        </button>
+      </section>
+      <section
+        id="mobile-nav"
+        ref={navRef}
+        onClick={toggleMobileNav}
+        aria-hidden="true"
+        className="hidden font-semibold dark:text-slate-400 text-3xl origin-top bg-slate-950 bg-opacity-95 absolute top-12 w-full"
+      >
+        <nav className="flex flex-col min-h-screen items-center w-full gap-8 py-4">
+          <NavLink prefetch="intent" to={`/`} className="group w-full">
+            <span className="group-[.active]:underline">Home</span>
+          </NavLink>
+          <NavLink prefetch="intent" to={`/events`} className="group w-full">
+            <span className="group-[.active]:underline">Events</span>
+          </NavLink>
+          <NavLink prefetch="intent" to={`/calendar`} className="group w-full">
+            <span className="group-[.active]:underline">Calendar</span>
+          </NavLink>
+          <NavLink prefetch="intent" to={`/my-events`} className="group w-full">
+            <span className="group-[.active]:underline">My Events</span>
+          </NavLink>
+          <NavLink prefetch="intent" to={`/profile`} className="group w-full">
+            <span className="group-[.active]:underline">Profile</span>
+          </NavLink>
+          <button
+            className="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg font-bold w-full"
+            type="button"
+          >
+            Login
+          </button>
+        </nav>
+      </section>
     </header>
   );
 };
