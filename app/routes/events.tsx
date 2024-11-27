@@ -46,7 +46,7 @@ const Events = () => {
                   <div className="flex flex-col gap-2">
                     <div className="flex gap-4">
                       <div className="font-bold">Title:</div>
-                      <div>{event.title}</div>
+                      <div className="font-bold">{event.title}</div>
                     </div>
                     <div className="line-clamp-2 text-sm">
                       {event.description}
