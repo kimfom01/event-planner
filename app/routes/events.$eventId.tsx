@@ -7,7 +7,6 @@ import {
 import {
   Form,
   isRouteErrorResponse,
-  json,
   redirect,
   useLoaderData,
   useRouteError,
@@ -30,13 +29,13 @@ export const loader: LoaderFunction = async ({
   });
 
   if (!event) {
-    throw json("Event with provided id could not be found!", {
+    throw Response.json("Event with provided id could not be found!", {
       status: 404,
       statusText: "Not Found",
     });
   }
 
-  return json<Event>(event);
+  return Response.json(event);
 };
 
 const Events = () => {

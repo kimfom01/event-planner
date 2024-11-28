@@ -1,4 +1,5 @@
 import {
+  Form,
   isRouteErrorResponse,
   Link,
   Links,
@@ -103,12 +104,11 @@ const Header = () => {
           <NavLink prefetch="intent" to={`/profile`} className="group">
             <span className="group-[.active]:underline">Profile</span>
           </NavLink>
-          <button
-            className="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg font-bold"
-            type="button"
-          >
-            Login
-          </button>
+          <Form action="/auth/google" method="POST">
+            <button className="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg font-bold">
+              Sign in with Google
+            </button>
+          </Form>
         </nav>
         <button className="md:hidden" onClick={toggleMobileNav}>
           <RiMenuLine />
@@ -137,12 +137,11 @@ const Header = () => {
           <NavLink prefetch="intent" to={`/profile`} className="group w-full">
             <span className="group-[.active]:underline">Profile</span>
           </NavLink>
-          <button
-            className="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg font-bold w-full"
-            type="button"
-          >
-            Login
-          </button>
+          <Form action="/auth/google" method="POST">
+            <button className="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg font-bold">
+              Sign in with Google
+            </button>
+          </Form>
         </nav>
       </section>
     </header>
