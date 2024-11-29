@@ -21,7 +21,7 @@ export const loader: LoaderFunction = async ({
       },
     },
     orderBy: {
-      createdAt: "asc",
+      eventDate: "asc",
     },
   });
 
