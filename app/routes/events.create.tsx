@@ -10,7 +10,7 @@ const CreateEvents = () => {
   return (
     <Form
       method="POST"
-      className="w-full h-full flex flex-col gap-4 md:mt-16 p-8 border border-slate-800 rounded-lg"
+      className="w-full h-fit flex flex-col gap-4 md:mt-16 p-8 border border-slate-800 rounded-lg"
       reloadDocument
     >
       <div className="text-xl font-bold self-center">New Event</div>
