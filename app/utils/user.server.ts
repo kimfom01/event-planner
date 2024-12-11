@@ -1,17 +1,6 @@
-import { createCookieSessionStorage } from "@remix-run/node";
 import { OAuth2Tokens } from "arctic";
 import { User } from "~/models/User";
 import { db } from "~/utils/db.server";
-
-export const getUserFromCookies = async (request: Request) => {
-  const sessionStorage = createCookieSessionStorage();
-
-  const session = await sessionStorage.getSession(
-    request.headers.get("cookie")
-  );
-
-  return await session.get("user");
-};
 
 export const getOrCreateUser = async (tokens: OAuth2Tokens) => {
   const response = await fetch(

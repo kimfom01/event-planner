@@ -1,18 +1,14 @@
-import { LoaderFunction, LoaderFunctionArgs, redirect } from "@remix-run/node";
+import { LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 
 import { db } from "~/utils/db.server";
 import { Event } from "~/models/Event";
-import { getUserFromCookies } from "~/lib/user-utils";
+import { requireUser } from "~/session/guards.server";
 
 export const loader: LoaderFunction = async ({
   request,
 }: LoaderFunctionArgs) => {
-  const user = await getUserFromCookies(request);
-
-  if (!user) {
-    throw redirect("/auth");
-  }
+  await requireUser(request);
 
   const events: Event[] = await db.event.findMany({
     where: {

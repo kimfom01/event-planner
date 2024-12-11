@@ -1,7 +1,7 @@
 import { Authenticator } from "remix-auth";
 import { OAuth2Strategy } from "remix-auth-oauth2";
 import { User } from "~/models/User";
-import { getOrCreateUser } from "~/lib/user-utils";
+import { getOrCreateUser } from "~/utils/user.server";
 
 export const authenticator = new Authenticator<User>();
 
