@@ -28,8 +28,8 @@ const Events = () => {
   const events = useLoaderData<Event[]>();
 
   return (
-    <div className="grid lg:grid-cols-[2fr_1fr] gap-4">
-      <div className="grid grid-rows-[auto_1fr] gap-4">
+    <div className="grid lg:grid-cols-[2fr_1fr] h-fit w-fit gap-4">
+      <div className="grid grid-rows-[auto_1fr] h-fit w-fit gap-4">
         <div className="text-2xl font-bold">
           <span>Upcoming Events</span>&nbsp;
           <Link
@@ -79,7 +79,7 @@ const Events = () => {
           })}
         </div>
       </div>
-      <div className="order-first lg:order-last">
+      <div className="order-first lg:order-last h-fit">
         <Outlet />
       </div>
     </div>
