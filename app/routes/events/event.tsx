@@ -3,17 +3,15 @@ import {
   ActionFunctionArgs,
   LoaderFunction,
   LoaderFunctionArgs,
-} from "@remix-run/node";
-import {
   Form,
   isRouteErrorResponse,
   redirect,
   useLoaderData,
   useRouteError,
-} from "@remix-run/react";
+} from "react-router";
 import { db } from "~/utils/db.server";
 import { Event } from "~/models/Event";
-import { ErrorBoundaryComponent } from "@remix-run/react/dist/routeModules";
+import { ErrorBoundaryComponent } from "@react-router/react/dist/routeModules";
 
 type FormType = "UPDATE" | "DELETE";
 

@@ -9,9 +9,9 @@ import {
   Scripts,
   ScrollRestoration,
   useRouteError,
-} from "@remix-run/react";
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import { LayoutComponent } from "@remix-run/react/dist/routeModules";
+} from "react-router";
+import type { LinksFunction, MetaFunction } from "react-router";
+import { LayoutComponent } from "@react-router/react/dist/routeModules";
 import { useRef } from "react";
 import { RiMenuLine } from "@remixicon/react";
 

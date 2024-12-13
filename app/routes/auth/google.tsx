@@ -1,4 +1,4 @@
-import { ActionFunction, ActionFunctionArgs } from "@remix-run/node";
+import { ActionFunction, ActionFunctionArgs } from "react-router";
 import { authenticator } from "~/utils/auth.server";
 
 export const action: ActionFunction = async ({

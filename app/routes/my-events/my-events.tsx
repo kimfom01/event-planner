@@ -1,4 +1,4 @@
-import { data, LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
+import { data, LoaderFunction, LoaderFunctionArgs } from "react-router";
 import { requireUser } from "~/session/guards.server";
 
 export const loader: LoaderFunction = async ({
@@ -9,8 +9,8 @@ export const loader: LoaderFunction = async ({
   return data(user);
 };
 
-const Calendar = () => {
-  return <div>Calendar</div>;
+const MyEvents = () => {
+  return <div>My Events</div>;
 };
 
-export default Calendar;
+export default MyEvents;

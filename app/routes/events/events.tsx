@@ -1,5 +1,5 @@
-import { LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { Link, Outlet, useLoaderData } from "@remix-run/react";
+import { LoaderFunction, LoaderFunctionArgs } from "react-router";
+import { Link, Outlet, useLoaderData } from "react-router";
 
 import { db } from "~/utils/db.server";
 import { Event } from "~/models/Event";
