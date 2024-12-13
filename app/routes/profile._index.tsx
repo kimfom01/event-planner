@@ -1,4 +1,4 @@
-import { data, LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
+import { data, LoaderFunction, LoaderFunctionArgs } from "react-router";
 import { requireUser } from "~/session/guards.server";
 
 export const loader: LoaderFunction = async ({

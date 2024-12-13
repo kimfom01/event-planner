@@ -1,3 +1,3 @@
-import type { RouteConfig } from "@remix-run/route-config";
+import type { RouteConfig } from "@react-router/dev/routes";
 
 export default [] satisfies RouteConfig;
