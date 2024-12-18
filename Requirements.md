@@ -133,18 +133,18 @@ The Event Planner App is a web-based application designed to allow users to crea
 
 ### **1. Setup and Configuration**
 
-- [ ] Set up the Remix project structure.
-- [ ] Configure Tailwind CSS for styling.
-- [ ] Set up Prisma with a PostgreSQL database.
-- [ ] Integrate an authentication library.
+- [x] Set up the Remix project structure.
+- [x] Configure Tailwind CSS for styling.
+- [x] Set up Prisma with a PostgreSQL database.
+- [x] Integrate an authentication library.
 
 ### **2. Core Features**
 
 - **Event Management**:
 
-  - [ ] Implement event creation with a form.
-  - [ ] Implement event editing.
-  - [ ] Implement event deletion.
+  - [x] Implement event creation with a form.
+  - [x] Implement event editing.
+  - [x] Implement event deletion.
 
 - **Calendar View**:
 
